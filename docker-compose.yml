@@ -31,6 +31,23 @@ services:
       TZ: ${TimeZone}
     networks:
       - default
+  allinoneplaza_com:
+    image: litespeedtech/openlitespeed:${OLS_VERSION}-${PHP_VERSION}
+    container_name: allinoneplaza_com
+    env_file:
+      - .env
+    volumes:
+      - ./allinoneplaza_com/lsws/conf:/usr/local/lsws/conf
+      - ./allinoneplaza_com/lsws/admin-conf:/usr/local/lsws/admin/conf
+      - ./bin/container:/usr/local/bin
+      - ./allinoneplaza_com/sites:/var/www/vhosts/
+      - ./allinoneplaza_com/acme:/root/.acme.sh/
+      - ./allinoneplaza_com/logs:/usr/local/lsws/logs/
+    restart: always
+    environment:
+      TZ: ${TimeZone}
+    networks:
+      - default
   nginx:
       build:
         context: ./nginx
