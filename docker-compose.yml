@@ -12,6 +12,8 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     restart: always
+    ports:
+      - "3306:3306"
     networks:
       - default
   test1_local:
