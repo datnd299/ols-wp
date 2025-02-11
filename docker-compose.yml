@@ -57,7 +57,8 @@ services:
       - .env
     volumes:
       - ./mytire_co/lsws/conf:/usr/local/lsws/conf
-      - ./allinonmytire_coeplaza_com/lsws/admin-conf:/usr/local/lsws/admin/conf
+      - ./mytire_co/lsws/lsphp82:/usr/local/lsws/lsphp82/
+      - ./mytire_co/lsws/admin-conf:/usr/local/lsws/admin/conf
       - ./bin/container:/usr/local/bin
       - ./mytire_co/sites:/var/www/vhosts/
       - ./mytire_co/acme:/root/.acme.sh/
